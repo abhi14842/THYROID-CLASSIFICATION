@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thyroid Disease Classification - Form 2</title>
+    
+    <style>
+    body {
+        margin: 0;
+        font-family: 'Arial';
+        background: url('/static/thyroid\ image.jpg' );
+        background-size: cover;
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 100px;
+    }
+    .form-container {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        border-right: 100px;
+    }
+    .form-container select, .form-container input[type="text"], .form-container input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    .form-container input[type="submit"] {
+        background-color: rgb(40, 167, 69);
+        color: white;
+        cursor: pointer;
+    }
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .nav-buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+    .nav-buttons a {
+        background-color: rgb(0, 123, 255);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    .nav-buttons a:hover {
+        background-color: rgb(0, 86, 179);
+    }
+    .form-container {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px;
+        width: 100%;
+        border-right: 100px;
+    }
+    .form-container h2 {
+        text-align: left;
+        color:white;
+    }
+    .form-container input[type="text"],
+    .form-container select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+    }
+    .form-container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+        
+    </style>
+</head>
+<body>
+    
+
+    <div class="form-container">
+        <div class="nav-buttons">
+            <a href="predict.html">Predict</a>
+        </div>
+        <form>
+            <label for="AGE">AGE</label>
+            <input type="text" id="AGE" name="AGE" placeholder="AGE">
+            <label for="SEX">SEX</label>
+            <select id="SEX" name="SEX">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <label for="On_thyroxine">On_thyroxine</label>
+            <select id="On_thyroxine" name="On_thyroxine">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="query_on_thyroxine">query_on_thyroxine</label>
+            <select id="query_on_thyroxine" name="query_on_thyroxine">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="on_antithyroid_meds">on_antithyroid_meds</label>
+            <select id="on_antithyroid_meds" name="on_antithyroid_meds">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="sick">sick</label>
+            <select id="sick" name="sick">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="pregnant">pregnant</label>
+            <select id="pregnant" name="pregnant">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="thyroid_surgery">thyroid_surgery</label>
+            <select id="thyroid_surgery" name="thyroid_surgery">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="I131_treatment">I131_treatment</label>
+            <select id="I131_treatment" name="I131_treatment">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="query_hypothyroid">query_hypothyroid</label>
+            <select id="query_hypothyroid" name="query_hypothyroid">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="query_hyperthyroid">query_hyperthyroid</label>
+            <select id="query_hyperthyroid" name="query_hyperthyroid">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            
+        </form>
+    </div>
+    <div class="form-container">
+        <form>
+            <label for="lithium">lithium</label>
+            <select id="lithium" name="lithium">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="goitre">goitre</label>
+            <select id="goitre" name="goitre">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+
+            <label for="tumor">tumor</label>
+            <select id="tumor" name="tumor">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select> 
+            <label for="hypopituitary">hypopituitary</label>
+            <select id="hypopituitary" name="hypopituitary">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+
+            <label for="psych">psych</label>
+            <select id="psych" name="psych">
+                <option value="Male">True</option>
+                <option value="Female">False</option>
+            </select>
+            <label for="tsh">TSH</label>
+            <input type="text" id="tsh" name="tsh" placeholder="TSH">
+            
+            <label for="t3">T3</label>
+            <input type="text" id="t3" name="t3" placeholder="T3">
+            
+            <label for="tt4">TT4</label>
+            <input type="text" id="tt4" name="tt4" placeholder="TT4">
+            
+            <label for="t4u">T4U</label>
+            <input type="text" id="t4u" name="t4u" placeholder="T4U">
+            
+            <label for="fti">FTI</label>
+            <input type="text" id="fti" name="fti" placeholder="FTI">
+            
+            <label for="tbg">TBG</label>
+            <input type="text" id="tbg" name="tbg" placeholder="TBG">
+            <a href="result.html">
+                <input type="submit" value="Submit">
+	        </a>
+        </form>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color:black;
+    color: white;
+    background-image: url('static/thyroid\ image.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.prediction {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.buttons {
+    margin-top: 20px;
+}
+.buttons button {
+    background-color: rgb(0, 123, 255);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+.buttons button:hover {
+    background-color: rgb(0, 86, 179);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from flask import Flask, render_template, request, jsonify
+import numpy as np
+import pickle 
+import pandas as pd
+import os
+
+
+
+app = Flask(__name__)
+
+model = pickle.load(open(r"C:\Users\kethe\OneDrive\Desktop\project-2\Flask\thyroid_1_model.pkl",'rb'))
+le = pickle.load(open(r"C:\Users\kethe\OneDrive\Desktop\project-2\Flask\label_encoder.pkl",'rb'))
+
+@app.route("/")
+def about():
+    return render_template('predict.html')
+
+@app.route("/pred", methods=['POST'])
+
+def predict(): 
+    AGE = request.form['AGE']
+    SEX = request.form['SEX']
+    On_thyroxine = request.form['On_thyroxine']
+    query_on_thyroxine = request.form['query_on_thyroxine']
+    on_antithyroid_meds = request.form['on_antithyroid_meds']
+    sick = request.form['sick']
+    pregnant = request.form['pregnant']
+    thyroid_surgery = request.form['thyroid_surgery']
+    I131_treatment = request.form['I131_treatment']
+    query_hypothyroid = request.form['query_hypothyroid']
+    query_hyperthyroid = request.form['query_hyperthyroid']
+    lithium = request.form['lithium']
+    goitre = request.form['Goitre']
+    tumor = request.form['tumor']
+    hypopituitary = request.form['hypopituitary']
+    psych = request.form['psych']
+    TSH = request.form['TSH']
+    T3 = request.form['T3']
+    TT4 = request.form['TT4']
+    T4U = request.form['T4U']
+    FTI = request.form['FTI']
+    TBG = request.form['TBG']
+    x = [[float(x) for x in request.form.values()]]
+
+    print(x) 
+    x_test = pd.DataFrame({'AGE','SEX','On_thyroxine','query_on_thyroxine','on_antithyroid_meds','sick ','pregnant','thyroid_surgery','I131_treatment','query_hypothyroid','query_hyperthyroid','lithium','goitre', 'tumor', 'hypopituitary', 'psych', 'TSH', 'T3', 'TT4', 'T4U', 'FTI', 'TBG'})
+    
+    y_pred = model.predict(x_test) 
+    output = round(y_pred[0], 2) 
+ 
+    return render_template('submit.html', output=output)
+
+if __name__ == "__main__": 
+    app.secret_key = os.urandom(12) 
+    port = int(os.getenv('VCAP_APP_PORT', '5000')) 
+    app.run(debug=False, host='0.0.0.0', port=port)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    
+    
+if request.method == 'POST':
+    # Get the form data
+    form_data = request.form
+    # Here you would process the data and run your prediction model
+    # For this example, we'll just use a placeholder prediction
+    prediction = 'miscellaneous'
+    return render_template('submit.html', prediction=prediction)  # Third interface
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @app.route('/submit', methods=['POST'])
+    def submit(): 
+        AGE = request.form['AGE']
+        SEX = request.form['SEX']
+        On_thyroxine = request.form['On_thyroxine']
+        query_on_thyroxine = request.form['query_on_thyroxine']
+        on_antithyroid_meds = request.form['on_antithyroid_meds']
+        sick = request.form['sick']
+        pregnant = request.form['pregnant']
+        thyroid_surgery = request.form['thyroid_surgery']
+        I131_treatment = request.form['I131_treatment']
+        query_hypothyroid = request.form['query_hypothyroid']
+        query_hyperthyroid = request.form['query_hyperthyroid']
+        lithium = request.form['lithium']
+        goitre = request.form['Goitre']
+        tumor = request.form['tumor']
+        hypopituitary = request.form['hypopituitary']
+        psych = request.form['psych']
+        TSH = request.form['TSH']
+        T3 = request.form['T3']
+        TT4 = request.form['TT4']
+        T4U = request.form['T4U']
+        FTI = request.form['FTI']
+        TBG = request.form['TBG']
+        x = [[float(x) for x in request.form.values()]]
+
+        print(x) 
+        x_test = pd.DataFrame[{'AGE','SEX','On_thyroxine','query_on_thyroxine','on_antithyroid_meds','sick ','pregnant','thyroid_surgery','I131_treatment','query_hypothyroid','query_hyperthyroid','lithium','goitre', 'tumor', 'hypopituitary', 'psych', 'TSH', 'T3', 'TT4', 'T4U', 'FTI', 'TBG'}]
+        
+        y_pred = model.predict(x_test) 
+        output = round(y_pred[0], 2) 
+     
+        return render_template('submit.html', output=output)

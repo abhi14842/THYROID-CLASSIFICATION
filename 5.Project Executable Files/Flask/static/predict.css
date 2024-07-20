@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: 'Arial';
+    background: url('static/thyroid\ image.jpg');
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 100px;
+}
+.form-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    border-right: 100px;
+}
+.form-container select, .form-container input[type="text"], .form-container input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+.form-container input[type="submit"] {
+    background-color: rgb(40, 167, 69);
+    color: white;
+    cursor: pointer;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.nav-buttons a {
+    background-color: rgb(0, 123, 255);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.nav-buttons a:hover {
+    background-color: rgb(0, 86, 179);
+}
+.form-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    width: 100%;
+    border-right: 100px;
+}
+.form-container h2 {
+    text-align: left;
+    color:white;
+}
+.form-container input[type="text"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+.form-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
